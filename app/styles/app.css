@@ -1,0 +1,52 @@
+[data-ember-action]:not(:disabled) {
+    cursor: pointer;
+}
+
+.text-muted {
+    margin-top: 7px;
+}
+
+.form-inline {
+   @media (min-width: @screen-sm-min) {
+        // Inline-block all the things for "inline"
+        .form-group {
+            display: inline-block;
+            margin-bottom: 0;
+            vertical-align: middle;
+        }
+
+        // Input groups need that 100% width though
+        .input-group > .form-control {
+            width: 100%;
+        }
+    }
+}
+
+.inner-container {
+    display: inline-block;
+    width: 100%;
+}
+
+.avatar {
+    max-width: 90%;
+    height: auto;
+    border: 2px solid #999999;
+    border-radius: 18%;
+    padding: 1%;
+}
+
+.avatar:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+.org-avatar {
+    max-width: 50%;
+    height: auto;
+    border: 1px solid #999999;
+    border-radius: 18%;
+    padding: 1%;
+}
+
+.org-avatar:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5);
+}

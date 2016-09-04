@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{title}}</h3>
+    </div>
+    <div class="panel-body">
+        {{#if iterator}}
+            {{#each element as |ele|}}
+                {{#if isRepo}}
+                    {{ele.name}}
+                    <br>
+                {{else}}
+                    {{ele.login}}
+                    <br>
+                {{/if}}
+            {{/each}}
+            {{#if extraRespos}}
+                <br>
+                <span>Man, this guy is crazy. He has worked on a lot more repositories.</span>
+            {{/if}}
+        {{else if isGithubLink}}
+            <a href={{element}}></a>
+        {{else}}
+            {{element}}
+        {{/if}}
+        {{#if isAvatar}}
+            <span class="thumbnail">
+                <img src={{avatarURL}}>
+            </span>
+        {{/if}}
+    </div>
+</div>

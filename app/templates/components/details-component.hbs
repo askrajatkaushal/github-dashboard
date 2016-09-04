@@ -1,0 +1,120 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Details</h3>
+    </div>
+    <div class="panel-body" style="text-align: left">
+        <div class="container">
+            {{#if authorSelected}}
+                <div class="row text-center">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" id="author">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">author</h3>
+                            </div>
+                            <div class="panel-body">
+                                <a href={{generatedHash.html_url}} class="thumbnail">
+                                    <img src={{generatedHash.avatar_url}} alt="avatar" class="avatar">
+                                    <br>
+                                </a>
+                                <h2>
+                                    <a href={{generatedHash.html_url}}> {{generatedHash.login_id}} </a>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" id="author">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">followers</h3>
+                            </div>
+                            <div class="panel-body">
+                                <h4>
+                                    {{generatedHash.followers}}
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">following</h3>
+                            </div>
+                            <div class="panel-body">
+                                <h4>
+                                    {{generatedHash.following}}
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">subscriptions</h3>
+                            </div>
+                            <div class="panel-body">
+                                <h4>
+                                    {{generatedHash.subscriptions}}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" id="author">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">organizations</h3>
+                            </div>
+                            <div class="panel-body">
+                                {{#if iterateOrgs}}
+                                    {{#each generatedHash.organizations as |organization|}}
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <h2>
+                                                    <img src={{organization.avatar_url}} alt="organization avatar" class="org-avatar">
+                                                    {{organization.login}}
+                                                </h2>
+                                            </li>
+                                        </ul>
+                                    {{/each}}
+                                {{else}}
+                                    <h2>
+                                        {{generatedHash.organizations}}
+                                    </h2>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" id="author">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">repositories</h3>
+                            </div>
+                            <div class="panel-body">
+                                {{#if iterateRepos}}
+                                    {{#each generatedHash.repos as |repo|}}
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <h2>
+                                                    {{repo.name}}
+                                                </h2>
+                                                <h4>
+                                                    {{repo.description}}
+                                                </h4>
+                                            </li>
+                                        </ul>
+                                    {{/each}}
+                                {{else}}
+                                    <h2>
+                                        {{generatedHash.repos}}
+                                    </h2>
+                                {{/if}}
+                                {{#if extraRespos}}
+                                    <h4>
+                                        {{generatedHash.login_id}} has many more repositories.
+                                    </h4>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

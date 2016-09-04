@@ -1,0 +1,44 @@
+<div class="section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-6 col-md-6 col-sm-10 col-xs-10 col-lg-offset-3 col-md-offset-3 col-sm-offset-1 col-xs-offset-1">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="search-bar">Search Authors Here</label>
+                        <div class="input-group">
+                            {{input type="text" class="form-control" placeholder="Enter search term here" value=queryValue}}
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" {{action 'searchQuery'}}>Search</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 col-lg-offset-1 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Authors</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            {{#each authors as |author|}}
+                                {{list-authors particularAuthor=author searchAuthor=(action 'searchAuthor')}}
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                {{pagination-component queryValue=queryValue total_count=total_count searchAuthor=(action 'searchAuthor')}}
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-8 col-xs-8">
+                {{author-details selectedAuthor=selectedAuthor jsonObj=jsonObj generatedHash=generatedHash authorSelected=authorSelected}}
+            </div>
+        </div>
+    </div>
+</div>
