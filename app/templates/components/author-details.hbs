@@ -54,59 +54,62 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="author">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="author">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">organizations</h3>
                         </div>
+                       
                         <div class="panel-body">
-                            {{#if iterateOrgs}}
-                            {{#each generatedHash.organizations as |organization|}}
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <h2>
-                                        <img src={{organization.avatar_url}} alt="organization avatar" class="org-avatar">
-                                        {{organization.login}}
-                                    </h2>
-                                </li>
-                            </ul>
-                            {{/each}}
+                            {{#if generatedHash.iterateOrgs}}
+                                {{#each generatedHash.organizations as |org|}}
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <h2>
+                                                <img src={{org.avatar_url}} alt="organization avatar" class="org-avatar">
+                                                <a href="https://www.github.com/{{org.login}}"> {{org.login}} </a>
+                                            </h2>
+                                        </li>
+                                    </ul>
+                                {{/each}}
                             {{else}}
-                            <h2>
-                                {{generatedHash.organizations}}
-                            </h2>
+                                <h2>
+                                    {{generatedHash.organizations}}
+                                </h2>
                             {{/if}}
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="author">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="author">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">repositories</h3>
                         </div>
                         <div class="panel-body">
-                            {{#if iterateRepos}}
-                            {{#each generatedHash.repos as |repo|}}
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <h2>
-                                        {{repo.name}}
-                                    </h2>
-                                    <h4>
-                                        {{repo.description}}
-                                    </h4>
-                                </li>
-                            </ul>
-                            {{/each}}
+                            {{#if generatedHash.iterateRepos}}
+                                {{#each generatedHash.repos as |repo|}}
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <h2>
+                                                <a {{action 'sendToRepo' repo.full_name}}> {{repo.name}} </a>
+                                            </h2>
+                                            <h4>
+                                                {{repo.description}}
+                                            </h4>
+                                        </li>
+                                    </ul>
+                                {{/each}}
                             {{else}}
-                            <h2>
-                                {{generatedHash.repos}}
-                            </h2>
+                                <h2>
+                                    {{generatedHash.repos}}
+                                </h2>
                             {{/if}}
-                            {{#if extraRespos}}
-                            <h4>
-                                {{generatedHash.login_id}} has many more repositories.
-                            </h4>
+                            {{log generatedHash.extraRespos}}
+                            {{#if generatedHash.extraRespos}}
+                                <br>
+                                <h4>
+                                    <strong>{{generatedHash.login_id}} has many more repositories.</strong>
+                                </h4>
                             {{/if}}
                         </div>
                     </div>

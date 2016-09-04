@@ -6,11 +6,11 @@ export default Ember.Component.extend({
     actions: {
         previousPage(queryValue) {
             if(this.currentPage === 1) {
-                this.sendAction('searchAuthor', this.currentPage);
+                this.sendAction('searchQuery', this.currentPage);
             }
             else {
                 this.currentPage -= 1;
-                this.sendAction('searchAuthor', this.currentPage);
+                this.sendAction('searchQuery', this.currentPage);
             }
             console.log("Inside previousPage, current page is: ", this.get('queryValue'), ' ', this.currentPage, ' ', this.get('total_count'));
         },

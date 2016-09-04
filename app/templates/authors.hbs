@@ -34,10 +34,10 @@
                         </div>
                     </div>
                 </div>
-                {{pagination-component queryValue=queryValue total_count=total_count searchAuthor=(action 'searchAuthor')}}
+                {{pagination-component queryValue=queryValue total_count=total_count searchAuthor=(action 'searchAuthor') searchQuery=(action 'searchQuery')}}
             </div>
             <div class="col-lg-7 col-md-7 col-sm-8 col-xs-8">
-                {{author-details selectedAuthor=selectedAuthor jsonObj=jsonObj generatedHash=generatedHash authorSelected=authorSelected}}
+                {{author-details jsonObj=jsonObj generatedHash=generatedHash authorSelected=authorSelected}}
             </div>
         </div>
     </div>

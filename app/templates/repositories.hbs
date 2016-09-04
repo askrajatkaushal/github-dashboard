@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                {{pagination-component queryValue=queryValue total_count=total_count searchRepo=(action 'searchRepo')}}
+                {{pagination-component queryValue=queryValue total_count=total_count searchRepo=(action 'searchRepo') searchQuery=(action 'searchQuery')}}
             </div>
             <div class="col-lg-7 col-md-7 col-sm-8 col-xs-8">
                 {{repo-details selectedRepo=selectedRepo jsonObj=jsonObj generatedHash=generatedHash repoSelected=repoSelected}}
